@@ -1,11 +1,10 @@
 # Campus Lost & Found Management System
 
-
 ## Tech Stack
 
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **Backend**: Node.js + Express.js
-- **Database**: MySQL
+- **Database**: MySQL (via mysql2)
 - **Security**: Helmet, express-validator, xss, dotenv
 
 ## Features
@@ -22,25 +21,46 @@
 ## Getting Started
 
 ### Prerequisites
-- Node.js v18+ only (no database installation needed!)
+- Node.js v18+
+- MySQL v8.0+
 
 ### Installation
 
 ```bash
-# 1. Install dependencies
+# 1. Set up the database
+# Open MySQL Workbench or Command Prompt and run:
+# mysql -u root -p < database.sql
+
+# 2. Create your .env file
+cp .env.example .env
+# Then open .env and fill in your MySQL credentials
+
+# 3. Install dependencies
 npm install
 
-# 2. Start the server
+# 4. Start the server
 npm start
 ```
 
 Visit `http://localhost:3000`
 
-The SQLite database file (`lostandfound.db`) is created automatically on first run with sample data included.
-
 ### Development
 ```bash
 npm run dev   # uses nodemon for auto-reload
+```
+
+## Environment Variables
+
+Create a `.env` file based on `.env.example`:
+
+```
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=lostandfound_db
+DB_PORT=3306
+PORT=3000
+NODE_ENV=development
 ```
 
 ## Project Structure
@@ -48,16 +68,19 @@ npm run dev   # uses nodemon for auto-reload
 ```
 campus-lost-found/
 ├── config/
-│   └── db.js              # SQLite connection + auto-setup
+│   └── db.js              # MySQL connection pool
 ├── middleware/
 │   └── validation.js      # Input validation & sanitization
 ├── routes/
 │   └── items.js           # CRUD API routes
 ├── public/
-│   ├── index.html         # Single-page frontend
+│   ├── index.html         # Home page
+│   ├── lost.html          # Lost items page
+│   ├── found.html         # Found items page
+│   ├── report.html        # Submit/Edit report page
 │   ├── css/style.css      # Stylesheet
-│   └── js/app.js          # Frontend logic
-├── lostandfound.db        # SQLite database (auto-created)
+│   └── js/               # Frontend JavaScript
+├── database.sql           # MySQL schema & seed data
 ├── server.js              # Express server entry point
 ├── .env.example           # Environment variable template
 └── package.json
@@ -78,9 +101,6 @@ campus-lost-found/
 
 1. **Server-side validation** — express-validator on all inputs
 2. **XSS Prevention** — xss library sanitizes all string inputs
-3. **SQL Injection Prevention** — Parameterized queries via better-sqlite3
+3. **SQL Injection Prevention** — Parameterized queries via mysql2
 4. **Secure Headers** — Helmet.js sets security HTTP headers
-5. **Environment Variables** — Config stored in .env
-
-## License
-MIT
+5. **Environment Variables** — MySQL credentials stored in .env file
