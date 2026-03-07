@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LnF — Submit Report</title>
+  
+  
+  
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-text">
+          <span class="brand-name">LnF</span>
+          <span class="brand-sub">Lost &amp; Found</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="/index.html"  class="nav-btn">Home</a>
+        <a href="/lost.html"   class="nav-btn">Lost Items</a>
+        <a href="/found.html"  class="nav-btn">Found Items</a>
+        <a href="/report.html" class="nav-btn cta active">+ Report</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="/index.html"  class="nav-btn">Home</a>
+    <a href="/lost.html"   class="nav-btn">Lost Items</a>
+    <a href="/found.html"  class="nav-btn">Found Items</a>
+    <a href="/report.html" class="nav-btn active">+ Report Item</a>
+  </div>
+
+  <main>
+    <div class="page-wrapper">
+      <div class="form-container">
+
+        <div class="form-header">
+          <h2 id="formTitle">Submit a Report</h2>
+          <p>Fill in the details below. All fields marked * are required.</p>
+        </div>
+
+        <div class="category-toggle">
+          <button class="toggle-btn active" id="toggleLost"  data-val="Lost">🔍 I Lost Something</button>
+          <button class="toggle-btn"        id="toggleFound" data-val="Found">📦 I Found Something</button>
+        </div>
+
+        <form id="reportForm" novalidate>
+          <input type="hidden" id="formId"       name="id" />
+          <input type="hidden" id="formCategory" name="category" value="Lost" />
+
+          <div class="form-grid">
+            <div class="field-group full">
+              <label for="f-title">Item Title *</label>
+              <input type="text" id="f-title" name="title" placeholder="e.g. Black Laptop Bag" maxlength="150" />
+              <span class="field-error" id="err-title"></span>
+            </div>
+            <div class="field-group full">
+              <label for="f-description">Description *</label>
+              <textarea id="f-description" name="description" rows="4" placeholder="Describe the item in detail (color, brand, distinguishing marks…)" maxlength="2000"></textarea>
+              <span class="field-error" id="err-description"></span>
+            </div>
+            <div class="field-group">
+              <label for="f-location">Location *</label>
+              <input type="text" id="f-location" name="location" placeholder="e.g. Library, Level 2" maxlength="200" />
+              <span class="field-error" id="err-location"></span>
+            </div>
+            <div class="field-group">
+              <label for="f-date">Date *</label>
+              <input type="date" id="f-date" name="date_occurred" />
+              <span class="field-error" id="err-date"></span>
+            </div>
+            <div class="field-group">
+              <label for="f-name">Your Name *</label>
+              <input type="text" id="f-name" name="contact_name" placeholder="Full name" maxlength="100" />
+              <span class="field-error" id="err-name"></span>
+            </div>
+            <div class="field-group">
+              <label for="f-email">Email Address *</label>
+              <input type="email" id="f-email" name="contact_email" placeholder="you@example.com" maxlength="150" />
+              <span class="field-error" id="err-email"></span>
+            </div>
+            <div class="field-group">
+              <label for="f-phone">Phone Number <small>(optional)</small></label>
+              <input type="tel" id="f-phone" name="contact_phone" placeholder="01X-XXXXXXX" maxlength="20" />
+              <span class="field-error" id="err-phone"></span>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <a href="/index.html" class="btn btn-outline">Cancel</a>
+            <button type="submit" class="btn btn-primary" id="submitBtn">Submit Report</button>
+          </div>
+          <div class="form-feedback" id="formFeedback"></div>
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <footer class="site-footer">
+    <p>© 2026 LnF · Lost &amp; Found System</p>
+  </footer>
+
+  <script src="/js/shared.js" defer></script>
+  <script src="/js/report.js" defer></script>
+</body>
+</html>

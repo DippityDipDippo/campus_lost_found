@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LnF — Lost Items</title>
+  
+  
+  
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-text">
+          <span class="brand-name">LnF</span>
+          <span class="brand-sub">Lost &amp; Found</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="/index.html"  class="nav-btn">Home</a>
+        <a href="/lost.html"   class="nav-btn active">Lost Items</a>
+        <a href="/found.html"  class="nav-btn">Found Items</a>
+        <a href="/report.html" class="nav-btn cta">+ Report</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="/index.html"  class="nav-btn">Home</a>
+    <a href="/lost.html"   class="nav-btn active">Lost Items</a>
+    <a href="/found.html"  class="nav-btn">Found Items</a>
+    <a href="/report.html" class="nav-btn">+ Report Item</a>
+  </div>
+
+  <main>
+    <div class="page-wrapper">
+
+      <div class="list-header">
+        <h2><span class="badge badge-lost">Lost</span> Items</h2>
+        <div class="filter-row">
+          <input type="text" id="lostSearch" placeholder="Search…" class="search-input" />
+          <select id="lostStatus" class="filter-select">
+            <option value="">All Statuses</option>
+            <option value="Active">Active</option>
+            <option value="Claimed">Claimed</option>
+            <option value="Resolved">Resolved</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="items-grid" id="lostGrid">
+        <div class="loading-spinner"><div class="spinner"></div></div>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <footer class="site-footer">
+    <p>© 2026 LnF · Lost &amp; Found System</p>
+  </footer>
+
+  <script src="/js/shared.js" defer></script>
+  <script src="/js/lost.js" defer></script>
+</body>
+</html>

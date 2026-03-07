@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LnF — Home</title>
+  
+  
+  
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-text">
+          <span class="brand-name">LnF</span>
+          <span class="brand-sub">Lost &amp; Found</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="/index.html"  class="nav-btn active">Home</a>
+        <a href="/lost.html"   class="nav-btn">Lost Items</a>
+        <a href="/found.html"  class="nav-btn">Found Items</a>
+        <a href="/report.html" class="nav-btn cta">+ Report</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="/index.html"  class="nav-btn">Home</a>
+    <a href="/lost.html"   class="nav-btn">Lost Items</a>
+    <a href="/found.html"  class="nav-btn">Found Items</a>
+    <a href="/report.html" class="nav-btn">+ Report Item</a>
+  </div>
+
+  <main>
+    <div class="page-wrapper">
+
+      <div class="hero">
+        <div class="hero-text">
+          <span class="hero-tag">Lost &amp; Found System</span>
+          <h1>Lost something?<br/><em>Found something?</em></h1>
+          <p class="hero-sub">The centralized platform for all lost and found reports on campus. Submit a report in seconds or browse to reunite with your items.</p>
+          <div class="hero-actions">
+            <a href="/report.html?cat=Lost"  class="btn btn-primary">Report Lost Item</a>
+            <a href="/report.html?cat=Found" class="btn btn-secondary">Report Found Item</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="blob"></div>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-num" id="stat-total">—</span>
+              <span class="stat-label">Total Reports</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" id="stat-lost">—</span>
+              <span class="stat-label">Lost Items</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" id="stat-found">—</span>
+              <span class="stat-label">Found Items</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" id="stat-resolved">—</span>
+              <span class="stat-label">Resolved</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="recent-section">
+        <div class="section-header">
+          <h2>Recent Reports</h2>
+          <div class="filter-row">
+            <input type="text" id="homeSearch" placeholder="Search items…" class="search-input" />
+            <select id="homeFilter" class="filter-select">
+              <option value="">All Categories</option>
+              <option value="Lost">Lost</option>
+              <option value="Found">Found</option>
+            </select>
+          </div>
+        </div>
+        <div class="items-grid" id="homeGrid">
+          <div class="loading-spinner"><div class="spinner"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <footer class="site-footer">
+    <p>© 2026 LnF · Lost &amp; Found System</p>
+  </footer>
+
+  <script src="/js/shared.js" defer></script>
+  <script src="/js/home.js" defer></script>
+</body>
+</html>
