@@ -1,12 +1,11 @@
-# QIU Campus Lost & Found Management System
+# Campus Lost & Found Management System
 
-A full-stack web application for Quest International University to manage lost and found items on campus.
 
 ## Tech Stack
 
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **Backend**: Node.js + Express.js
-- **Database**: SQLite (via better-sqlite3) — no installation required!
+- **Database**: MySQL
 - **Security**: Helmet, express-validator, xss, dotenv
 
 ## Features
